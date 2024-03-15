@@ -13,3 +13,4 @@
 | 3   | [os](https://classroom.github.com/a/WUamxSi_)            | [sys](https://classroom.github.com/a/V6OQAGGX)         | [sys](https://classroom.github.com/a/30nUxBeI)         | [sys](https://classroom.github.com/a/fBOkFC_L)         |
 | 4   | [csv](https://classroom.github.com/a/HrCbhL18)           | [os](https://classroom.github.com/a/lVG075iW)          | [os](https://classroom.github.com/a/1RU1nn7u)          | [os](https://classroom.github.com/a/NUb0pAXt)          |
 | 5   | [numpy](https://classroom.github.com/a/ykQMSeDU)         | [csv](https://classroom.github.com/a/PUiNxl5N)         | [csv](https://classroom.github.com/a/_jBh8-xO)         | [csv](https://classroom.github.com/a/mPfywgpg)         |
+| 6   | [pandas](https://classroom.github.com/a/aQQHOFkv)        |
