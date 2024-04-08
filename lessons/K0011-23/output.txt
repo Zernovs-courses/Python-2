@@ -1,0 +1,18 @@
+this is some text
+this is some other text
+apr-01-threads.ipynb
+apr-4-sockets.ipynb
+apr-5-tkinter.py
+apr-8-bash.ipynb
+cap_client.py
+cap_server.py
+date_client.py
+first.sh
+mar-20.ipynb
+mar-22-numpy.ipynb
+mar-25-pandas.ipynb
+mar-26-0411-pandas.ipynb
+output.txt
+threads.py
+titanic.csv
+ttt_server.py
