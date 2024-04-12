@@ -44,6 +44,7 @@ class PlayerHandler(socketserver.StreamRequestHandler):
             if not command:
                 break
             command = command.decode()
+            print(f"{self.mark} sends: {command}")
             if command.startswith("QUIT"):
                 return
             elif command.startswith("MOVE"):
@@ -113,6 +114,7 @@ class Game:
                 cls.next_game = None
 
 
-with ThreadedTCPServer(("", 59090), PlayerHandler) as server:
+with ThreadedTCPServer(("", 59091), PlayerHandler) as server:
     print(f"Server is running...")
     server.serve_forever()
+
