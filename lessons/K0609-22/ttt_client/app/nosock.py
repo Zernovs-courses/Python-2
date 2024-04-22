@@ -3,6 +3,8 @@ import socket
 import time
 
 COMMAND = None
+TIMEOUT = 1
+
 
 def new_command(x):
     global COMMAND
@@ -33,16 +35,25 @@ def send(sock: socket, message: str):
     # sock.
 
 
+
 def receive(sock):
+    BUF_SIZE = 10
     print("Start receiving...")
     message: str = ""
-    while True:
-        msg = sock.recv(8)
-        print(b"    " + msg)
-        message += msg.decode()
-        if len(msg) < 8:
-            break
-
+    time_start = time.time()
+    while time.time() < time_start + TIMEOUT:
+        msg = sock.recv(BUF_SIZE)
+        while msg:
+            print((b"\t" + msg).decode())
+            message += msg.decode()
+            if len(msg) < BUF_SIZE:
+                break
+            msg = sock.recv(BUF_SIZE)
+        else:
+            continue
+        break
+    else:
+        print("Timed out")
     message = message.strip()
     print(f"Finished receiving. Got {message}")
     return message
@@ -83,12 +94,13 @@ def client_loop(port, root):
             break
         
         # -------------------
-        
-        while not COMMAND:
+        time_start = time.time()
+        while time.time() < time_start + TIMEOUT:
             time.sleep(0.1)
-        else:
-            send(sock, COMMAND)
-            COMMAND = None
+            if COMMAND:
+                send(sock, COMMAND)
+                COMMAND = None
+                break
 
         
 
@@ -96,9 +108,3 @@ def client_loop(port, root):
 def client_start(port, root):
     cl = threading.Thread(target=client_loop, args=(port, root), daemon=True)
     cl.start()
-
-
-def on_closing():
-    if sock:
-        sock.close()
-    root.destroy()
