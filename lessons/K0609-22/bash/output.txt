@@ -1,0 +1,5 @@
+New line from echo
+One more line from echo
+basics.sh
+input.txt
+output.txt
